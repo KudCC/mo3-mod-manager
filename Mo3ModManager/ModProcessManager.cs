@@ -325,12 +325,12 @@ namespace Mo3ModManager
 
             //sleep for 10s
             System.Threading.Thread.Sleep(10000);
-            System.Windows.MessageBox.Show(parent, "You are still running Windows 7 or earlier.\n It's too old so we can't know whether the game has exited or not.\n Click the OK button when the game has exited.",
-           "You should consider upgrading to Windows 10", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Exclamation);
-            System.Windows.MessageBox.Show(parent, "Only click the OK button when the game has exited.", "Double check",
+            System.Windows.MessageBox.Show(parent, " 你当前正在运行windows 7或者更古老的系统。\n 该系统太旧了，我们无法检测到游戏是否退出了。\n 当游戏完全退出时，请点击“确定”按钮。",
+           "你应当考虑升级到windows 10了", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Exclamation);
+            System.Windows.MessageBox.Show(parent, "只有在游戏完全退出的时候再点击“确定”按钮", "再次检查",
                 System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Exclamation);
 
-            Trace.WriteLine("[Note] Game exited.");
+            Trace.WriteLine("[Note] 游戏已退出");
 
             //wait for 3s. just in case 
             System.Threading.Thread.Sleep(3000);
@@ -377,12 +377,12 @@ namespace Mo3ModManager
                 else
                 {
                     //continue
-                    System.Windows.MessageBox.Show(parent, "You are still running Windows 7 or earlier.\n It's too old so we can't know whether the game has exited or not.\n Click the OK button when the game has exited.",
-                   "You should consider upgrading to Windows 10", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Exclamation);
-                    System.Windows.MessageBox.Show(parent, "Only click the OK button when the game has exited.", "Double check",
+                    System.Windows.MessageBox.Show(parent, " 你当前正在运行windows 7或者更古老的系统。\n 该系统太旧了，我们无法检测到游戏是否退出了。\n 当游戏完全退出时，请点击“确定”按钮。",
+                   "你应当考虑升级到windows 10了", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Exclamation);
+                    System.Windows.MessageBox.Show(parent, "只有在游戏完全退出的时候再点击“确定”按钮", "再次检查",
                         System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Exclamation);
 
-                    Trace.WriteLine("[Note] Game exited.");
+                    Trace.WriteLine("[Note] 游戏已退出");
 
                     System.ComponentModel.BackgroundWorker worker2 = new System.ComponentModel.BackgroundWorker();
 

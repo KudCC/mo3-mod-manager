@@ -19,8 +19,8 @@
         
         <TextBox x:Name="TextBox" Margin="2" Grid.Row="1"  HorizontalAlignment="Stretch"   TextWrapping="Wrap"  VerticalAlignment="Top"  />
         <StackPanel Margin="5" Grid.Row="2" HorizontalAlignment="Right"  Orientation="Horizontal" >
-            <Button x:Name="OKButton" Click="OKButton_Click" IsDefault="True">OK</Button>
-            <Button x:Name="CancelButton" Margin="10,0,0,0" Click="CancelButton_Click" IsCancel="True">Cancel</Button>
+            <Button x:Name="OKButton" Click="OKButton_Click" IsDefault="True">确定</Button>
+            <Button x:Name="CancelButton" Margin="10,0,0,0" Click="CancelButton_Click" IsCancel="True">取消</Button>
         </StackPanel>
 
     </Grid>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Mo3ModManager"
         mc:Ignorable="d"
         FontSize="14"
-        Title="Mental Omega Mod Manager" Height="450" Width="800" Icon="Icon.ico" WindowStartupLocation="CenterScreen">
+        Title="红色警戒2模组管理器" Height="450" Width="800" Icon="Icon.ico" WindowStartupLocation="CenterScreen">
     <Grid>
         <DockPanel LastChildFill="True" >
             <Grid DockPanel.Dock="Bottom" Margin="5">
@@ -18,34 +18,34 @@
 
                 <StackPanel x:Name="icon" Grid.Column="2" >
                     <Button x:Name="RunButton"  Click="RunButton_Click" IsEnabled="False" >
-                        <AccessText>_Play</AccessText>
+                        <AccessText>开始游戏</AccessText>
                     </Button>
                     <!--<Button x:Name="PropertiesButton" IsEnabled="False">Properties...</Button>-->
                     <!--<Button x:Name="BrowseButton" Click="BrowseButton_Click">Browse...</Button> -->
                     
                     <Button x:Name="InstallModButton" Click="InstallModButton_Click"  >
-                        <AccessText>_Install Mod...</AccessText>
+                        <AccessText>安装模组</AccessText>
                     </Button>
                     <Button x:Name="DeleteModButton" IsEnabled="False" Click="DeleteModButton_Click">
-                        <AccessText>_Delete Mod...</AccessText>
+                        <AccessText>删除模组</AccessText>
                     </Button>
                     
                     
                     <Button x:Name="NewProfileButton" Click="NewProfileButton_Click" >
-                        <AccessText>_New Profile...</AccessText>
+                        <AccessText>新建配置文件</AccessText>
                     </Button>
                     <Button x:Name="RenameProfileButton" IsEnabled="False" Click="RenameProfileButton_Click">
-                        <AccessText>_Rename Profile...</AccessText>
+                        <AccessText>重命名配置文件</AccessText>
                     </Button>
                     <Button x:Name="DeleteProfileButton" Click="DeleteProfileButton_Click" IsEnabled="False" >
-                        <AccessText>D_elete Profile...</AccessText>
+                        <AccessText>删除配置文件</AccessText>
                     </Button>
                     <Button x:Name="AboutButton" MouseEnter="AboutButton_MouseEnter" MouseLeave="AboutButton_MouseLeave" Click="AboutButton_Click" >
-                        <AccessText>_About...</AccessText>
+                        <AccessText>关于</AccessText>
                     </Button>
                 </StackPanel>
 
-                <GroupBox x:Name="ProfilesGroupBox" Grid.Column="0" Header="Profiles">
+                <GroupBox x:Name="ProfilesGroupBox" Grid.Column="0" Header="配置文件列表">
                     <ListView x:Name="ProfilesListView" SelectionChanged="ProfilesListView_SelectionChanged" MouseDoubleClick="ProfilesListView_MouseDoubleClick">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
@@ -65,7 +65,7 @@
             </Grid>
 
 
-            <GroupBox x:Name="ModsGroupBox"  DockPanel.Dock="Top"  Header="Mods" Margin="5">
+            <GroupBox x:Name="ModsGroupBox"  DockPanel.Dock="Top"  Header="模组列表" Margin="5">
                 <TreeView x:Name="ModTreeView" SelectedItemChanged="ModTreeView_SelectedItemChanged">
                     <!--Bind TreeViewItem-->
                     <TreeView.ItemTemplate>

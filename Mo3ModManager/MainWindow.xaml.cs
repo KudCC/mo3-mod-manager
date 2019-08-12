@@ -35,7 +35,7 @@ namespace Mo3ModManager
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "严重错误", MessageBoxButton.OK, MessageBoxImage.Error);
                 Environment.Exit(1);
             }
         }
@@ -97,13 +97,13 @@ namespace Mo3ModManager
             if (this.ModTreeView.SelectedItem != null)
             {
                 var selectedItem = this.ModTreeView.SelectedItem as ModItem;
-                this.ModsGroupBox.Header = "Mod: " + selectedItem.Title;
+                this.ModsGroupBox.Header = "模组: " + selectedItem.Title;
 
                 this.DeleteModButton.IsEnabled = (selectedItem.Items.Count == 0);
             }
             else
             {
-                this.ModsGroupBox.Header = "Mods:";
+                this.ModsGroupBox.Header = "模组:";
 
                 this.DeleteModButton.IsEnabled = false;
             }
@@ -115,14 +115,14 @@ namespace Mo3ModManager
             if (this.ProfilesListView.SelectedItem != null)
             {
                 var selectedItem = this.ProfilesListView.SelectedItem as ProfileItem;
-                this.ProfilesGroupBox.Header = "Profile: " + selectedItem.Name;
+                this.ProfilesGroupBox.Header = "配置文件: " + selectedItem.Name;
 
                 this.RenameProfileButton.IsEnabled = true;
                 this.DeleteProfileButton.IsEnabled = true;
             }
             else
             {
-                this.ProfilesGroupBox.Header = "Profiles:";
+                this.ProfilesGroupBox.Header = "配置文件:";
 
                 this.RenameProfileButton.IsEnabled = false;
                 this.DeleteProfileButton.IsEnabled = false;
@@ -203,7 +203,7 @@ namespace Mo3ModManager
 
         private void NewProfileButton_Click(object sender, RoutedEventArgs e)
         {
-            string newProfileName = InputWindow.ShowDialog(this, "What is the new profile's name?", "New Profile...");
+            string newProfileName = InputWindow.ShowDialog(this, "请设定一个配置文件名称", "新建配置文件");
             newProfileName = this.PurifyFileName(newProfileName);
 
             if (String.IsNullOrWhiteSpace(newProfileName)) return;
@@ -213,14 +213,14 @@ namespace Mo3ModManager
             {
                 if (System.IO.Directory.Exists(newProfilePath))
                 {
-                    MessageBox.Show("Profile \"" + newProfileName + "\" already existed. Try another.", "Failure", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show("配置文件 \"" + newProfileName + "\" 已存在。 请尝试别的名称。", "失败", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
                 var directoryInfo = System.IO.Directory.CreateDirectory(newProfilePath);
                 this.ProfilesListView.Items.Add(new ProfileItem(directoryInfo));
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "严重错误", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -230,7 +230,7 @@ namespace Mo3ModManager
             var selectedItem = (this.ProfilesListView.SelectedItem as ProfileItem);
 
 
-            string newProfileName = InputWindow.ShowDialog(this, "What is the new profile's name?", "New Profile...");
+            string newProfileName = InputWindow.ShowDialog(this, "请设定一个配置文件名称", "新建配置文件");
             newProfileName = this.PurifyFileName(newProfileName);
 
             if (String.IsNullOrWhiteSpace(newProfileName)) return;
@@ -241,7 +241,7 @@ namespace Mo3ModManager
             {
                 if (System.IO.Directory.Exists(newProfilePath))
                 {
-                    MessageBox.Show("Profile \"" + newProfileName + "\" already existed. Try another.", "Failure", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show("配置文件 \"" + newProfileName + "\" 已存在。 请尝试别的名称。", "失败", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
                 System.IO.Directory.Move(selectedItem.Directory, newProfilePath);
                 selectedItem.ReplaceFrom(new ProfileItem(new System.IO.DirectoryInfo(newProfilePath)));
@@ -249,7 +249,7 @@ namespace Mo3ModManager
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "严重错误", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
         }
@@ -257,7 +257,7 @@ namespace Mo3ModManager
         {
             System.Diagnostics.Debug.Assert(this.ProfilesListView.SelectedItem != null);
             var selectedItem = this.ProfilesListView.SelectedItem as ProfileItem;
-            if (MessageBox.Show("Are you sure to delete \"" + selectedItem.Name + "\" profile?", "Warning", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) == MessageBoxResult.Yes)
+            if (MessageBox.Show("你确定要删除 \"" + selectedItem.Name + "\" 的配置文件吗", "警告", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) == MessageBoxResult.Yes)
             {
                 try
                 {
@@ -266,7 +266,7 @@ namespace Mo3ModManager
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(ex.Message, "严重错误", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
@@ -280,18 +280,18 @@ namespace Mo3ModManager
 
         private void AboutButton_MouseEnter(object sender, MouseEventArgs e)
         {
-            this.AboutButton.Content = new AccessText() { Text = "By: S_ad Pencil <me@pencil.live>..." };
+            this.AboutButton.Content = new AccessText() { Text = "By: Sad Pencil <me@pencil.live>..." };
         }
 
         private void AboutButton_MouseLeave(object sender, MouseEventArgs e)
         {
-            this.AboutButton.Content = new AccessText() { Text = "_About..." };
+            this.AboutButton.Content = new AccessText() { Text = "_关于" };
         }
 
         private void DeleteModButton_Click(object sender, RoutedEventArgs e)
         {
             var selectedItem = this.ModTreeView.SelectedItem as ModItem;
-            if (MessageBox.Show("Are you sure to delete \"" + selectedItem.Name + "\" mod?", "Warning", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) == MessageBoxResult.Yes)
+            if (MessageBox.Show("你确定要删除 \"" + selectedItem.Name + "\" 模组吗", "警告", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) == MessageBoxResult.Yes)
             {
                 try
                 {
@@ -310,7 +310,7 @@ namespace Mo3ModManager
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(ex.Message, "严重错误", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
 
@@ -320,8 +320,8 @@ namespace Mo3ModManager
         {
             var openFileDialog = new Microsoft.Win32.OpenFileDialog()
             {
-                Filter = "Mod Archive (*.zip)|*.zip",
-                Title = "Install Mod..."
+                Filter = "模组压缩包 (*.zip)|*.zip",
+                Title = "安装模组"
             };
             if ((bool)openFileDialog.ShowDialog())
             {
@@ -343,7 +343,7 @@ namespace Mo3ModManager
 
                     testTree.AddNodes(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Incoming"));
 
-                    if (testTree.Count() == this.NodeTree.Count()) throw new Exception("This archive doesn't contain any nodes.");
+                    if (testTree.Count() == this.NodeTree.Count()) throw new Exception("该压缩包不包含任何nodes");
 
                     IO.CreateHardLinksOfFiles(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Incoming"), System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Mods"));
 

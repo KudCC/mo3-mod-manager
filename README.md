@@ -1,5 +1,6 @@
 # Mental Omega Mod Manager
-By: Sad Pencil <me@pencil.live>
+- By: Sad Pencil <me@pencil.live>
+- Modified by: Kud <kud@new-page.xyz>, Zhukov
 
 ## Description
 A game manager using NTFS hardlink to manage games - not limited to Mental Omega but a lot of programs.

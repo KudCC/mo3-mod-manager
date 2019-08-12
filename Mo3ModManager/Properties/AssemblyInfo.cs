@@ -7,12 +7,12 @@ using System.Windows;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("Mo3ModManager")]
+[assembly: AssemblyTitle("Ra2ModManager")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Mo3ModManager")]
-[assembly: AssemblyCopyright("Copyright © mo3.club 2018")]
+[assembly: AssemblyProduct("Ra2ModManager")]
+[assembly: AssemblyCopyright("Copyright © mo3.Club 2018 & Kud 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
