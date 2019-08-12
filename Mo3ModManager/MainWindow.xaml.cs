@@ -57,7 +57,7 @@ namespace Mo3ModManager
 
         private void AboutButton_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://go.mo3.club/mo3-mod-manager");
+            System.Diagnostics.Process.Start("https://github.com/KudCC/mo3-mod-manager");
         }
 
         private void BuildProfiles()
@@ -280,12 +280,12 @@ namespace Mo3ModManager
 
         private void AboutButton_MouseEnter(object sender, MouseEventArgs e)
         {
-            this.AboutButton.Content = new AccessText() { Text = "By: Sad Pencil <me@pencil.live>..." };
+            this.AboutButton.Content = new AccessText() { Text = "By: Sad Pencil, Mod:Kud, Zhukov" };
         }
 
         private void AboutButton_MouseLeave(object sender, MouseEventArgs e)
         {
-            this.AboutButton.Content = new AccessText() { Text = "_关于" };
+            this.AboutButton.Content = new AccessText() { Text = "关于" };
         }
 
         private void DeleteModButton_Click(object sender, RoutedEventArgs e)
